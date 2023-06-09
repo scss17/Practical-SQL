@@ -18,10 +18,6 @@ VALUES
 ('Betty', 'Diaz', 'Myers Middle School', '2005-08-30', 43500),
 ('Kathleen', 'Roush', 'F.D. Roosevelt HS', '2010-10-22', 38500);
 
--- SELECT ALL THE ROWS AND COLUMNS FROM THE TEACHERS TABLE
-SELECT *
-FROM teachers;
-
 -- EXERCISES
 -- QUESTION 1
 -- Imagine you’re building a database to catalog all the animals at your local zoo. 
