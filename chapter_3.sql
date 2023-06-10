@@ -1,0 +1,91 @@
+-- THE SCRIPT DEFINES THREE CHARACTER COLUMNS OF DIFFERENT TYPES AND 
+-- INSERTS TWO ROWS OF THE SAME STRING INTO EACH
+CREATE TABLE char_data_types (
+varchar_column VARCHAR(10),
+char_column CHAR(10),
+text_column TEXT
+);
+
+
+-- OMSERT VALUES INTO CHARACTER DATA TYPES TALE
+INSERT INTO char_data_types
+VALUES
+('abc', 'abc', 'abc'),
+('defghi', 'defghi', 'defghi');
+
+-- PostgreSQL COPY KEYWORD TO EXPOT THE DATA TO A TEXT
+-- FILE NAMED typetest.txt IN A DIRECTORY YOU SPECIFY.
+COPY char_data_types TO 'C:\YourDirectory\typetest.txt'
+WITH (FORMAT CSV, HEADER, DELIMITER '|');
+
+-- WE'VE CRAETED A TABLE WITH ONE COLUMN FOR EACH OF THE FRACTIONAL
+-- DATA TYPES AND LOADED THREE ROWS INTO THE TABLE
+CREATE TABLE number_data_types (
+    numeric_column NUMERIC(20,5),
+    real_column REAL,
+    double_column DOUBLE PRECISION
+);
+
+-- EACH ROW REPEATS THE SAME NUMER ACROSSALL THREE COLUMNS
+INSERT INTO number_data_types
+VALUES
+(.7, .7, .7),
+(2.13579, 2.13579, 2.13579),
+(2.1357987654, 2.1357987654, 2.1357987654);
+
+-- VIEW THE ENTIRE TABLE
+SELECT * FROM number_data_types;
+
+-- HERE, WE CREATE A TABLE WITH A COLUM FOR BOTH TYPES
+CREATE TABLE date_time_types (
+	timestamp_column TIMESTAMP WITH TIME ZONE,
+	interval_column INTERVAL
+);
+
+-- INSERT FOUR ROWS
+INSERT INTO date_time_types
+VALUES
+('2018-12-31 01:00 EST','2 days'),
+('2018-12-31 01:00 -8','1 month'),
+('2018-12-31 01:00 Australia/Melbourne','1 century'),
+(now(),'1 week');
+
+-- VIEW DATE TYPES TABLE
+SELECT * FROM date_time_types;
+
+-- THE FIRST SELECT STATEMENT RETURNS THE TIMESTAMP_COLUMN AS 
+-- A VARCHAR
+SELECT timestamp_column, CAST(timestamp_column AS varchar(10))
+FROM date_time_types;
+
+-- RETURNS THE NUMERIC_COLUMN THREE TIMES: IN ITS ORIGINAL FORM AND
+-- THEN AS AN INTEGER AND AS A CHARACTER.
+SELECT numeric_column,
+CAST(numeric_column AS integer),
+CAST(numeric_column AS varchar(6))
+FROM number_data_types;
+
+-- IT RETUNS AN ERROR OF INVALID INPUT SYNTAX FOR INTEGER
+SELECT CAST(char_column AS integer) FROM char_data_types;
+
+-- THE FIRST SELECT STATEMENT RETURNS THE TIMESTAMP_COLUMN AS A VARCHAR
+SELECT timestamp_column, CAST(timestamp_column AS VARCHAR(10))
+FROM date_time_types;
+
+-- RETURNS THE NUMERIC_COLUMN THREE TIMES: IN ITS ORIGINAL FORM AND
+-- THEN AS AN INTEGER AND AS A CHARACTER.
+SELECT numeric_column,
+CAST(numeric_column AS INTEGER),
+CAST(numeric_column AS VARCHAR(6))
+FROM number_data_types;
+
+-- IT RETUNS AN ERROR OF INVALID INPUT SYNTAX FOR INTEGER
+SELECT CAST(char_column AS INTEGER) FROM char_data_types;
+
+-- CAST TIMESTAMP TO CHRACTER
+SELECT timestamp_column, CAST(timestamp_column AS VARCHAR(10))
+FROM date_time_types;
+
+-- CAST TIMESTAMP TO CHRACTER USING A SHORTCUT NOTATION 
+SELECT timestamp_column::VARCHAR(10)
+FROM date_time_types;
