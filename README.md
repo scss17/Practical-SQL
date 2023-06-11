@@ -1,19 +1,17 @@
 # Practical-SQL
 
-# Introduction
-
-### What is SQL
+## What is SQL
 
 SQL is a widely used programming language that allows you to define and query databases. Whether you’re a marketing analyst, a journalist, or a researcher mapping neurons in the brain of a fruit fly, you’ll benefit from using SQL to manage database objects as well as create, modify, explore, and summarize data.
 
 SQL comes in several variants, which are generally tied to specific database systems. The good news is that the variants don’t stray far from the standard, so once you learn the SQL conventions for one database, you can transfer that knowledge to other systems.
 
-### Why SQL
+## Why SQL
 
 - Using a robust **SQL** database system allows you to work with terabytes of data, multiple related tables, and thousands of columns. It gives you improved programmatic control over the structure of your data, leading to efficiency, speed, and—most important—accuracy.
 - **SQL** is also an excellent adjunct to programming languages used in the data sciences, such as R and Python. If you use either language, you can connect to **SQL** databases and, in some cases, even incorporate **SQL** syntax directly into the language.
 
-### Content
+## Content
 
 - **Chapter 1**: Creating Your First Database and Table introduces PostgreSQL, the pgAdmin user interface, and the code for loading a simple data set about teachers into a new database.
 - **Chapter 2**: Beginning Data Exploration with SELECT explores basic SQL query syntax, including how to sort and filter data.
@@ -34,11 +32,11 @@ SQL comes in several variants, which are generally tied to specific database sys
 - **Chapter 17**: Maintaining Your Database provides tips and procedures for tracking the size of your database, customizing settings, and backing up data.
 - **Chapter 18**: Identifying and Telling the Story Behind Your Data provides guidelines for generating ideas for analysis, vetting data, drawing sound conclusions, and presenting your findings clearly.
 
-### Code Examples
+## Code Examples
 
 [GitHub - anthonydb/practical-sql: Code and Data for the First Edition of "Practical SQL" by Anthony DeBarros, published by No Starch Press (2018).](https://github.com/anthonydb/practical-sql)
 
-### Why PostgreSQL
+## Why PostgreSQL
 
 - It’s free.
 - It’s available for Windows, macOS, and Linux operating systems.
