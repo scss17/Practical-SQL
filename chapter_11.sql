@@ -161,3 +161,13 @@ SELECT segment,
        to_char(departure, 'YYYY-MM-DD HH12:MI a.m. TZ') AS departure,
 	   arrival - departure AS segment_time
 FROM train_rides;
+
+SELECT segment,
+       arrival - departure AS segment_time,
+	   SUM(arrival - departure) OVER (ORDER BY trip_id) AS cume_time
+FROM train_rides;
+
+SELECT segment,
+       (arrival - departure) AS segment_time,
+       sum(date_part('epoch', (arrival - departure))) OVER (ORDER BY trip_id) * interval '1 second' AS cume_time
+FROM train_rides;
